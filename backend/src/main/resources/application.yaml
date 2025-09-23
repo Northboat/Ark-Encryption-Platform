@@ -1,13 +1,13 @@
 spring:
   application:
-    name: Ark-Auth
+    name: Ark-Encryption-Deck
   security:
     user:
-      name: "arkrypto"
-      password: "011026"
+      name: "admin"
+      password: "sad"
   thymeleaf:
     cache: false
 
 
 server:
-  port: 10086
+  port: 10000

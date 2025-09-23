@@ -16,4 +16,9 @@
       <module name="se-simulation" target="17" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Ark-Searchable-Encryption" options="-parameters" />
+    </option>
+  </component>
 </project>

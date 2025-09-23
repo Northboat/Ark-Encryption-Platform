@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Quadtree - Ark Searchable Encryption</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+		<link rel="icon" type="image/png" href="/images/favicon.ico">
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="/" class="title">Ark Encryption</a>
+				<nav>
+					<ul>
+						<li><a href="/home">Home</a></li>
+						<li><a href="/pairing">Pairing</a></li>
+						<li><a href="/arch">BM25</a></li>
+						<li><a href="/tree" class="active">Tree</a></li>
+						<li><a href="/signature">Signature</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+				<section id="main" class="wrapper">
+					<div class="inner">
+						<h1 class="major">Searchable Encrypted Prefix Quadtree</h1>
+
+						<section>
+						<p><span class="image left"><img src="/images/tree.png" alt="" /></span>
+							基于内积函数加密与前缀多叉树结构，设计了一种支持前缀匹配的可搜索加密方案，树的维度和字段数有关<br><br>
+							构造阶段，系统首先将明文数据进行每个字段大小构造前缀字符串，再通过哈希与加密映射的方式将其嵌入前缀多叉树的对应节点<br><br>
+							查询阶段，利用 IPFE 的向量内积特性，将查询向量与密文索引进行安全计算，无需解密即可完成匹配，实现密文索引的范围过滤与精准定位，并避免明文泄露风险<br><br>
+							该机制不仅兼顾了数据可检索性与访问效率，也有效保障了敏感数据在云端环境下的隐私安全，适用于需要支持前缀范围查询的加密存储场景
+						</p>
+						</section><br>
+
+						<section>
+							<h2>Operations</h2><br>
+							<form method="post" th:action="@{/buildTree}">
+								<div class="row gtr-uniform">
+									<div class="col-6 col-12-xsmall">
+										<select name="count" th:value="${count}">
+											<option value="1" th:selected="${count == null or count == ''}">- Node Count -</option>
+											<option value="10" th:selected="${count == '10'}">10</option>
+											<option value="50" th:selected="${count == '50'}">50</option>
+											<option value="100" th:selected="${count == '100'}">100</option>
+											<option value="200" th:selected="${count == '200'}">200</option>
+											<option value="300" th:selected="${count == '300'}">300</option>
+											<option value="400" th:selected="${count == '400'}">400</option>
+											<option value="500" th:selected="${count == '500'}">500</option>
+											<option value="600" th:selected="${count == '600'}">600</option>
+											<option value="700" th:selected="${count == '700'}">700</option>
+											<option value="100000" th:selected="${count == '100000'}">100000</option>
+										</select>
+									</div>
+									<div class="col-6 col-12-xsmall">
+										<select name="dimension" th:value="${dimension}">
+											<option value="2" th:selected="${dimension == null or dimension == ''}">- Dimensional -</option>
+											<option value="2" th:selected="${dimension == '2'}">Two-Dimensional</option>
+											<option value="3" th:selected="${dimension == '3'}">Three-Dimensional</option>
+											<option value="4" th:selected="${dimension == '4'}">Four-Dimensional</option>
+										</select>
+									</div>
+									<div class="col-12">
+										<ul class="actions fit">
+											<li><input type="submit" value="1️⃣ Build Tree" class="button fit" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+
+
+							<form method="post" th:action="@{/search}">
+								<div class="row gtr-uniform">
+									<div class="col-6 col-12-xsmall">
+                                        <textarea name="data" rows="4" placeholder="- Enter the data to query, with each field separated by a newline. -"></textarea>
+									</div>
+									<div style="text-align: center" class="col-6">
+										<ul class="actions fit">
+											<li><input type="submit" value="2️⃣ Search Node" class="button fit" /></li>
+										</ul>
+                                    </div>
+								</div>
+							</form>
+
+							<h2>Result</h2>
+							<div th:each="item: ${data}">
+								<strong th:text="${item.key}">Key</strong><br>
+								<p th:utext="${item.value}" style="word-wrap: break-word; word-break: break-all; white-space: normal;">Value</p>
+							</div>
+						</section>
+					</div>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; cia.Arkrypto. All rights reserved.</li><li>Web Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>
