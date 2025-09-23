@@ -26,37 +26,45 @@ public class EncryptedTree {
     public EncryptedTree(Field G1, Field Zr){
         this.G1 = G1;
         this.Zr = Zr;
-        height = 1;
-        n = 3;
-        IPFEUtil.keygen(G1, Zr);
+        height = 0;
     }
+
+    public void init(int dimension){
+        setN(dimension);
+        IPFEUtil.keygen(G1, Zr, dimension);
+    }
+
+
+    public void clean(){
+        root = null;
+        height = 0;
+    }
+
 
     public TreeNode insert(String[] cur){
         // 将明文哈希，将用于前缀比较和 x 生成
-        Element[] curM = HashUtil.hashStrArr2ZrArr(Zr, cur);
+        Element[] curX = HashUtil.hashStrArr2ZrArr(Zr, cur);
         if(root == null){
             String[] initPrefix = new String[n];
             // 初始化一个前缀，这会浪费 n 长度的前缀
-            for(int i = 0; i < n; i++){
-                initPrefix[i] = "0";
-            }
-            root = IPFEUtil.enc(Zr, initPrefix, curM, n);
+            Arrays.fill(initPrefix, "0");
+            root = IPFEUtil.enc(Zr, initPrefix, curX);
             height++;
             return root;
         }
-        return insert(root.getPrefix(), curM, root, 1);
+        return insert(root.getPrefix(), curX, root, 1);
     }
 
 
-    public TreeNode insert(String[] pre, Element[] curM, TreeNode root, int h){
+    public TreeNode insert(String[] pre, Element[] curX, TreeNode root, int h){
 
         int n = root.getN();
-        Element[] m = root.getM();
+        Element[] x = root.getX();
 
-        String z = EncodeUtil.singleDimensionDec(m, curM, n); // 增加的前缀
+        String z = EncodeUtil.singleDimensionDec(x, curX, n); // 增加的前缀
         String[] newPrefix = EncodeUtil.superposePrefix(pre, z, n); // 构成新的前缀
 
-        TreeNode node = IPFEUtil.enc(Zr, newPrefix, curM, n); // 根据当前前缀和明文哈希生成节点
+        TreeNode node = IPFEUtil.enc(Zr, newPrefix, curX); // 根据当前前缀和明文哈希生成节点
 
         int i = Integer.parseInt(z, 2); // 解析二进制为十进制
         TreeNode child = root.getSubtree()[i];
@@ -69,19 +77,13 @@ public class EncryptedTree {
             return node;
         }
         // 否则继续向下找
-        return insert(newPrefix, curM, child, h);
+        return insert(newPrefix, curX, child, h);
     }
 
-
-    public void clean(){
-        root = null;
-        height = 0;
-    }
 
 
     public String randomBuild(int count){
-        int dimension = getN();
-        List<List<String>> data = generateData(count, dimension);
+        List<List<String>> data = generateData(count, getN());
         build(data);
         return getTreeStruct();
     }
@@ -96,8 +98,6 @@ public class EncryptedTree {
 
     public List<List<String>> generateData(int count, int dimension){
         Set<List<String>> uniqueLists = new HashSet<>();
-        Random random = new Random();
-
         while (uniqueLists.size() < count) {
             List<String> innerList = new ArrayList<>();
             for (int j = 0; j < dimension; j++) {
@@ -121,9 +121,9 @@ public class EncryptedTree {
 
     public TreeNode search(String[] cur){
         // 将明文哈希
-        Element[] q = HashUtil.hashStrArr2ZrArr(Zr, cur);
+        Element[] y = HashUtil.hashStrArr2ZrArr(Zr, cur);
 
-        Ciphertext ciphertext = IPFEUtil.trap(Zr, q);
+        Ciphertext ciphertext = IPFEUtil.trap(Zr, y);
         return search(root, ciphertext);
     }
 
@@ -136,7 +136,7 @@ public class EncryptedTree {
             return node;
         }
 
-        String z = EncodeUtil.singleDimensionDec(node.getM(), ciphertext.getY(), n); // 增加的前缀
+        String z = EncodeUtil.singleDimensionDec(node.getX(), ciphertext.getY(), n); // 增加的前缀
         int i = Integer.parseInt(z, 2);
 
         return search(node.getSubtree()[i], ciphertext);

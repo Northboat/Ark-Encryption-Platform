@@ -1,6 +1,5 @@
 package cia.northboat.se.controller;
 
-import cia.northboat.se.crypto.tree.model.Point;
 import cia.northboat.se.crypto.sign.model.CryptoMap;
 import cia.northboat.se.crypto.sign.model.KeyPair;
 import cia.northboat.se.service.*;
@@ -103,21 +102,12 @@ public class CryptoController {
 
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public String search(@RequestParam String x, @RequestParam String y, Model model) {
-        model.addAttribute("x", x);
-        model.addAttribute("y", y);
+    public String search(@RequestParam String query, Model model) {
+        String[] queryData = query.split("\n");
+        Map<String, Object> data = ipfeTreeService.search(queryData);
 
-        Point p;
-        try{
-            p = new Point(Integer.parseInt(x), Integer.parseInt(y));
-        }catch (NumberFormatException e){
-            model.addAttribute("data", Map.of("Error", "NumberFormatException"));
-            return "/pages/tree";
-        }
-
-
-        model.addAttribute("data", ipfeTreeService.search("nmsl"));
-
+        model.addAttribute("data", data);
+        model.addAttribute("query", query);
         return "/pages/tree";
     }
 

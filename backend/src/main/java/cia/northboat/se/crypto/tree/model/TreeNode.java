@@ -13,12 +13,11 @@ import lombok.NoArgsConstructor;
 public class TreeNode {
 
     private int n; // 长度
-    private Element[] m; // 哈希后的明文，用于比较生成前缀
     private String[] prefix; // 前缀
     private TreeNode[] subtree; // 子树
 
     // 密文
-    private Element[] x; // 这个 x 是根据
+    private Element[] x; // 这个 x 是哈希后的明文，用于比较生成前缀，同时用来加密
     private Element s_x, t_x;
 
 

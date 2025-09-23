@@ -85,7 +85,7 @@
 							<form method="post" th:action="@{/search}">
 								<div class="row gtr-uniform">
 									<div class="col-6 col-12-xsmall">
-                                        <textarea name="data" rows="4" placeholder="- Enter the data to query, with each field separated by a newline. -"></textarea>
+                                        <textarea name="query" th:value="${query}" rows="4" placeholder="- Enter the data to query, with each field separated by a newline. -"></textarea>
 									</div>
 									<div style="text-align: center" class="col-6">
 										<ul class="actions fit">

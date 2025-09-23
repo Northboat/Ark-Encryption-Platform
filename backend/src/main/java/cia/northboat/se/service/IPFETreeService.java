@@ -23,7 +23,7 @@ public class IPFETreeService {
 
         long s = System.currentTimeMillis();
         encryptedTree.clean();
-        encryptedTree.setN(dimension);
+        encryptedTree.init(dimension);
         String tree = encryptedTree.randomBuild(count);
         long e = System.currentTimeMillis();
         data.put("time_cost", e-s);

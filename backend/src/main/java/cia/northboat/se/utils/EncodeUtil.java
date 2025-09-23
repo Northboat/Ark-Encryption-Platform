@@ -1,6 +1,5 @@
 package cia.northboat.se.utils;
 
-import cia.northboat.se.crypto.tree.model.Point;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
 
@@ -26,6 +25,7 @@ public class EncodeUtil {
         return sb.toString();
     }
 
+    // 根据原有前缀和新添的前缀构造新的前缀
     public static String[] superposePrefix(String[] prefix, String cur, int n){
         String[] newPrefix = new String[n];
         for(int i = 0; i < n; i++){
@@ -48,16 +48,6 @@ public class EncodeUtil {
             return "10";
         }
         return "11";
-    }
-
-
-    public static String zCodeEnc(Point p1, Point p2){
-        return zCodeEnc(p1.getX(), p1.getY(), p2.getX(), p2.getY());
-    }
-
-
-    public static int getMatchedIndex(Point p, Point o){
-        return getMatchedIndex(zCodeEnc(p, o));
     }
 
     public static int getMatchedIndex(String z){

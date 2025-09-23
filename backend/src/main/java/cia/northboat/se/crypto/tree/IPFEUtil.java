@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class IPFEUtil {
 
-    private static final int l = 52;
+    private static int l;
 
     // 公钥
     public static Element g, h;
@@ -23,15 +23,16 @@ public class IPFEUtil {
         return g;
     }
 
-    public static void keygen(Field G1, Field Zr){
+    public static void keygen(Field G1, Field Zr, int n){
 
+        l = n;
         g = G1.newRandomElement().getImmutable();
         h = G1.newRandomElement().getImmutable();
 
-        s = new Element[l];
-        t = new Element[l];
-        h_i = new Element[l];
-        for(int i = 0; i < l; i++){
+        s = new Element[n];
+        t = new Element[n];
+        h_i = new Element[n];
+        for(int i = 0; i < n; i++){
             s[i] = Zr.newRandomElement().getImmutable();
             t[i] = Zr.newRandomElement().getImmutable();
             h_i[i] = g.powZn(s[i]).mul(h.powZn(t[i])).getImmutable();
@@ -41,12 +42,8 @@ public class IPFEUtil {
 
 
     // 加密生成节点，关键的加密原料 x 完全来自于哈希过的明文 m
-    public static TreeNode enc(Field Zr, String[] prefix, Element[] m, int n){
-
-        // 如何将 n 维的 m 映射到 l 长的 x 数组？每次结果必须一致
-        // 直接复制过去，多余的位用 0 填充
-        Element[] x = HashUtil.fillInArr(Zr, m, l);
-
+    // 加密长度和数据维度保持一致
+    public static TreeNode enc(Field Zr, String[] prefix, Element[] x){
 
 //        System.out.println("====== Encrypt ======");
         Element s1 = Zr.newZeroElement();
@@ -60,20 +57,18 @@ public class IPFEUtil {
         Element t_x = s2.getImmutable();
 
         return TreeNode.builder()
-                .m(m)
                 .x(x)
                 .t_x(t_x)
                 .s_x(s_x)
                 .prefix(prefix)
-                .n(n)
-                .subtree(new TreeNode[(int)Math.pow(2, n)])
+                .n(l)
+                .subtree(new TreeNode[(int)Math.pow(2, l)])
                 .build();
     }
 
 
 
-    public static Ciphertext trap(Field Zr, Element[] q){
-        Element[] y = HashUtil.fillInArr(Zr, q, l);
+    public static Ciphertext trap(Field Zr, Element[] y){
 
         Element r = Zr.newRandomElement().getImmutable();
         int n = y.length;
@@ -84,7 +79,12 @@ public class IPFEUtil {
             E[i] = g.powZn(y[i]).mul(h_i[i].powZn(r)).getImmutable();
         }
 
-        return new Ciphertext(y, C, D, E);
+        return Ciphertext.builder()
+                .y(y)
+                .C(C)
+                .D(D)
+                .E(E)
+                .build();
     }
 
     public static Boolean match(Field G1, Field Zr, TreeNode node, Ciphertext text, Element g){
