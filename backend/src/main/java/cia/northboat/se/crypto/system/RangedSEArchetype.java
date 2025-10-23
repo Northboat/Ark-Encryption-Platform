@@ -1,4 +1,4 @@
-package cia.northboat.se.crypto.bm25;
+package cia.northboat.se.crypto.system;
 
 
 import cia.northboat.se.utils.*;

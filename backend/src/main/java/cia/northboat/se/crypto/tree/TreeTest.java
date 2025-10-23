@@ -1,12 +1,15 @@
 package cia.northboat.se.crypto.tree;
 
-import cia.northboat.se.crypto.tree.model.Ciphertext;
 import cia.northboat.se.crypto.tree.model.TreeNode;
-import cia.northboat.se.utils.HashUtil;
-import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TreeTest {
 
@@ -20,12 +23,13 @@ public class TreeTest {
         Zr = bp.getZr();
     }
 
-    public static void main(String[] args) {
-        EncryptedTree tree = new EncryptedTree(G1, Zr);
-        tree.init(4);
-        test(tree);
+    public static void main(String[] args) throws ClassNotFoundException {
+//        EncryptedTree tree = new EncryptedTree(G1, Zr);
+//        tree.init(4);
+//        test(tree);
+        int a = 10, b = 20;
+        int c = a + b;
     }
-
 
     public static void test(EncryptedTree tree){
 
