@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Quadtree - Ark Searchable Encryption</title>
+		<title>IFPE Tree - Ark Encryption Platform</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/main.css" />
@@ -23,7 +23,7 @@
 						<li><a href="/home">Home</a></li>
 						<li><a href="/pairing">Pairing</a></li>
 						<li><a href="/arch">BM25</a></li>
-						<li><a href="/tree" class="active">Tree</a></li>
+						<li><a href="/tree" class="active">IPFE</a></li>
 						<li><a href="/signature">Signature</a></li>
 					</ul>
 				</nav>
@@ -35,7 +35,7 @@
 				<!-- Main -->
 				<section id="main" class="wrapper">
 					<div class="inner">
-						<h1 class="major">Searchable Encrypted Prefix Quadtree</h1>
+						<h1 class="major">Searchable IPFE Prefix Tree</h1>
 
 						<section>
 						<p><span class="image left"><img src="/images/tree.png" alt="" /></span>
@@ -85,7 +85,7 @@
 							<form method="post" th:action="@{/search}">
 								<div class="row gtr-uniform">
 									<div class="col-6 col-12-xsmall">
-                                        <textarea name="query" th:value="${query}" rows="4" placeholder="- Enter the data to query, with each field separated by a newline. -"></textarea>
+                                        <textarea name="query" th:value="${query}" rows="1" placeholder="- Enter the data to query, with each field separated by comma. -"></textarea>
 									</div>
 									<div style="text-align: center" class="col-6">
 										<ul class="actions fit">

@@ -3,3 +3,6 @@ application.yaml
 
 # 忽略 target 目录
 target/
+
+# 忽略所有 csv 文件
+*.csv

@@ -2,12 +2,15 @@ package cia.northboat.se.service;
 
 import cia.northboat.se.crypto.tree.EncryptedTree;
 import cia.northboat.se.crypto.tree.model.TreeNode;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Service
 public class IPFETreeService {
 
@@ -21,19 +24,16 @@ public class IPFETreeService {
     public Map<String, Object> buildTree(int count, int dimension){
         Map<String, Object> data = new HashMap<>();
 
-        long s = System.currentTimeMillis();
         encryptedTree.clean();
         encryptedTree.init(dimension);
-        String tree = encryptedTree.randomBuild(count);
-        long e = System.currentTimeMillis();
-        data.put("time_cost", e-s);
+        long cost = encryptedTree.randomBuild(count);
+        data.put("time_cost", cost);
 
 
-        String htmlTreeStr = tree.replace("\n", "<br>");
+        String htmlTreeStr = encryptedTree.getTreeStruct().replace("\n", "<br>");
         htmlTreeStr = htmlTreeStr.replace(" ", "&nbsp;");
-        data.put("tree", htmlTreeStr);
 
-        System.out.println("Tree Height: " + encryptedTree.getHeight());
+        data.put("tree", htmlTreeStr);
         data.put("height", encryptedTree.getHeight());
 
         return data;
@@ -41,7 +41,7 @@ public class IPFETreeService {
 
 
 
-    public Map<String, Object> search(String ... data){
+    public Map<String, Object> search(List<String> data){
         Map<String, Object> res = new HashMap<>();
 
         if(encryptedTree.getHeight() == 0){

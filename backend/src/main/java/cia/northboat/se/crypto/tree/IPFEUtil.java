@@ -3,7 +3,6 @@ package cia.northboat.se.crypto.tree;
 
 import cia.northboat.se.crypto.tree.model.Ciphertext;
 import cia.northboat.se.crypto.tree.model.TreeNode;
-import cia.northboat.se.utils.HashUtil;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
 import lombok.extern.slf4j.Slf4j;

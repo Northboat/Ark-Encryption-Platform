@@ -8,6 +8,7 @@ import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,7 @@ import java.util.*;
 @Getter
 @Setter
 @Component
+@Slf4j
 public class EncryptedTree {
 
     TreeNode root;
@@ -50,7 +52,7 @@ public class EncryptedTree {
             Arrays.fill(initPrefix, "0");
             root = IPFEUtil.enc(Zr, initPrefix, curX);
             height++;
-            return root;
+//            return root;
         }
         return insert(root.getPrefix(), curX, root, 1);
     }
@@ -81,18 +83,22 @@ public class EncryptedTree {
     }
 
 
-
-    public String randomBuild(int count){
-        List<List<String>> data = generateData(count, getN());
-        build(data);
-        return getTreeStruct();
+    private List<List<String>> data;
+    public long randomBuild(int count){
+        data = generateData(count, getN());
+        long cost = build(data);
+        log.info("Tree has been built, Tree height is {}", this.height);
+        return cost;
     }
 
 
-    public void build(List<List<String>> list){
+    public long build(List<List<String>> list){
+        long s = System.currentTimeMillis();
         for(List<String> l : list){
             insert(l.toArray(new String[0]));
         }
+        long e = System.currentTimeMillis();
+        return e - s;
     }
 
 
@@ -105,6 +111,7 @@ public class EncryptedTree {
                 innerList.add(UUID.randomUUID().toString().substring(0, 8));
                 // innerList.add("val_" + random.nextInt(10000)); // 也可以用随机数
             }
+            log.info("The node has been generated: {}", innerList);
             uniqueLists.add(innerList); // HashSet 会帮我们去重
         }
 
@@ -113,13 +120,17 @@ public class EncryptedTree {
 
 
 
-    public boolean match(TreeNode node, Ciphertext ciphertext){
-        Element g = IPFEUtil.getBase();
-        return IPFEUtil.match(G1, Zr, node, ciphertext, g);
+    public List<TreeNode> search(){
+        List<TreeNode> result = new ArrayList<>();
+        for(List<String> l : data){
+            result.add(search(l));
+        }
+        return result;
     }
 
 
-    public TreeNode search(String[] cur){
+    public TreeNode search(List<String> query){
+        String[] cur = query.toArray(new String[0]);
         // 将明文哈希
         Element[] y = HashUtil.hashStrArr2ZrArr(Zr, cur);
 
@@ -140,6 +151,12 @@ public class EncryptedTree {
         int i = Integer.parseInt(z, 2);
 
         return search(node.getSubtree()[i], ciphertext);
+    }
+
+
+    public boolean match(TreeNode node, Ciphertext ciphertext){
+        Element g = IPFEUtil.getBase();
+        return IPFEUtil.match(G1, Zr, node, ciphertext, g);
     }
 
 

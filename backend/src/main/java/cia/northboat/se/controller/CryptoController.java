@@ -5,16 +5,15 @@ import cia.northboat.se.crypto.sign.model.KeyPair;
 import cia.northboat.se.service.*;
 import cia.northboat.se.utils.ResultCode;
 import cia.northboat.se.utils.ResultUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
+@Slf4j
 @Controller
 public class CryptoController {
     private final AuthService authService;
@@ -92,22 +91,20 @@ public class CryptoController {
         return "/pages/tree";
     }
 
-
-    @RequestMapping(value = "/mine", method = RequestMethod.GET)
-    public String mine(Model model) {
-        int difficulty = 5;
-        model.addAttribute("data", blockChainService.mine(difficulty));
-        return "/pages/sign";
-    }
-
-
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public String search(@RequestParam String query, Model model) {
-        String[] queryData = query.split("\n");
-        Map<String, Object> data = ipfeTreeService.search(queryData);
+
+        String[] queryData = query.trim().split(",");
+        for(int i = 0; i < queryData.length; i++){
+            queryData[i] = queryData[i].trim();
+        }
+        List<String> q = List.of(queryData);
+        log.info("Search data: {}", q);
+
+        Map<String, Object> data = ipfeTreeService.search(q);
+        data.put("query", q);
 
         model.addAttribute("data", data);
-        model.addAttribute("query", query);
         return "/pages/tree";
     }
 
@@ -174,5 +171,10 @@ public class CryptoController {
         return ResultUtil.success(authService.verify(algo, pk, signature));
     }
 
-
+    @RequestMapping(value = "/mine", method = RequestMethod.GET)
+    public String mine(Model model) {
+        int difficulty = 5;
+        model.addAttribute("data", blockChainService.mine(difficulty));
+        return "/pages/sign";
+    }
 }
