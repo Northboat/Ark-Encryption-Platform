@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4df1e08c-ea5c-4d4d-932e-fdbf1765c707" name="Changes" comment="Refactor crypto component &amp; fix quadtree search function">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/utils/CsvReaderUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cia/northboat/se/controller/CryptoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/controller/CryptoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/IPFEUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/IPFEUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/TreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTreeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cia/northboat/se/service/IPFETreeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/service/IPFETreeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/arch.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/arch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/pairing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/pairing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sign.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sign.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +298,7 @@
       <workItem from="1762353722867" duration="314000" />
       <workItem from="1762407977528" duration="9001000" />
       <workItem from="1762483126654" duration="7701000" />
-      <workItem from="1762501678009" duration="6538000" />
+      <workItem from="1762501678009" duration="8654000" />
     </task>
     <task id="LOCAL-00001" summary="update: add PEKS algo &amp; TestUtil">
       <created>1745999105945</created>

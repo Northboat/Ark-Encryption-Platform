@@ -1,4 +1,4 @@
-package cia.northboat.se.crypto.sign.model;
+package cia.northboat.se.crypto.auth.model;
 
 import lombok.Data;
 

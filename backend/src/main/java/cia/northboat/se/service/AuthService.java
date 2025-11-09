@@ -1,12 +1,12 @@
 package cia.northboat.se.service;
 
 
-import cia.northboat.se.crypto.sign.SignatureSystem;
-import cia.northboat.se.crypto.sign.impl.Elgamal;
-import cia.northboat.se.crypto.sign.impl.RSA;
-import cia.northboat.se.crypto.sign.model.KeyPair;
-import cia.northboat.se.crypto.sign.impl.Schnorr;
-import cia.northboat.se.crypto.sign.model.CryptoMap;
+import cia.northboat.se.crypto.auth.SignatureSystem;
+import cia.northboat.se.crypto.auth.impl.Elgamal;
+import cia.northboat.se.crypto.auth.impl.RSA;
+import cia.northboat.se.crypto.auth.model.KeyPair;
+import cia.northboat.se.crypto.auth.impl.Schnorr;
+import cia.northboat.se.crypto.auth.model.CryptoMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

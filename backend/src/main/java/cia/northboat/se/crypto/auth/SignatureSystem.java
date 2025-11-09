@@ -1,4 +1,4 @@
-package cia.northboat.se.crypto.sign;
+package cia.northboat.se.crypto.auth;
 
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Field;

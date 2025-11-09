@@ -1,4 +1,4 @@
-package cia.northboat.se.crypto.sign.model;
+package cia.northboat.se.crypto.auth.model;
 
 import cia.northboat.se.utils.EncodeUtil;
 import it.unisa.dia.gas.jpbc.Element;

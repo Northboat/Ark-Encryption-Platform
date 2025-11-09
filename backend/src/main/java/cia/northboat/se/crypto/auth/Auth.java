@@ -1,7 +1,7 @@
-package cia.northboat.se.crypto.sign;
+package cia.northboat.se.crypto.auth;
 
-import cia.northboat.se.crypto.sign.model.CryptoMap;
-import cia.northboat.se.crypto.sign.model.KeyPair;
+import cia.northboat.se.crypto.auth.model.CryptoMap;
+import cia.northboat.se.crypto.auth.model.KeyPair;
 
 public interface Auth {
 

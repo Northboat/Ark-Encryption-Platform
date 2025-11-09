@@ -1,7 +1,7 @@
 package cia.northboat.se.controller;
 
-import cia.northboat.se.crypto.sign.model.CryptoMap;
-import cia.northboat.se.crypto.sign.model.KeyPair;
+import cia.northboat.se.crypto.auth.model.CryptoMap;
+import cia.northboat.se.crypto.auth.model.KeyPair;
 import cia.northboat.se.service.*;
 import cia.northboat.se.utils.ResultCode;
 import cia.northboat.se.utils.ResultUtil;

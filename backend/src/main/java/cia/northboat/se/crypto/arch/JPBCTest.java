@@ -1,4 +1,4 @@
-package cia.northboat.se.crypto.system;
+package cia.northboat.se.crypto.arch;
 
 import it.unisa.dia.gas.jpbc.*;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;

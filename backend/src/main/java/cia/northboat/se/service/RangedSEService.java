@@ -1,6 +1,6 @@
 package cia.northboat.se.service;
 
-import cia.northboat.se.crypto.system.RangedSEArchetype;
+import cia.northboat.se.crypto.arch.RangedSEArchetype;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;

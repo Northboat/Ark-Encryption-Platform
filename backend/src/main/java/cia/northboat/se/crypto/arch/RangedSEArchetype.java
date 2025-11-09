@@ -1,4 +1,4 @@
-package cia.northboat.se.crypto.system;
+package cia.northboat.se.crypto.arch;
 
 
 import cia.northboat.se.utils.*;

@@ -1,8 +1,8 @@
-package cia.northboat.se.crypto.sign.impl;
+package cia.northboat.se.crypto.auth.impl;
 
-import cia.northboat.se.crypto.sign.SignatureSystem;
-import cia.northboat.se.crypto.sign.model.CryptoMap;
-import cia.northboat.se.crypto.sign.model.KeyPair;
+import cia.northboat.se.crypto.auth.SignatureSystem;
+import cia.northboat.se.crypto.auth.model.CryptoMap;
+import cia.northboat.se.crypto.auth.model.KeyPair;
 import cia.northboat.se.utils.HashUtil;
 import it.unisa.dia.gas.jpbc.Field;
 import it.unisa.dia.gas.jpbc.Element;
