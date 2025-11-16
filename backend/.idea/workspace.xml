@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4df1e08c-ea5c-4d4d-932e-fdbf1765c707" name="Changes" comment="Refactor crypto component &amp; fix quadtree search function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,10 +36,10 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="customMavenHome" value="D:/Env/apache-maven-3.9.1" />
-        <option name="localRepository" value="D:\Env\apache-maven-3.9.1\repo" />
+        <option name="customMavenHome" value="C:\Users\admin\northboat\maven\apache-maven-3.9.11" />
+        <option name="localRepository" value="C:\Users\admin\northboat\maven\apache-maven-3.9.11\repo" />
         <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
-        <option name="userSettingsFile" value="D:\Env\apache-maven-3.9.1\conf\settings.xml" />
+        <option name="userSettingsFile" value="C:\Users\admin\northboat\maven\apache-maven-3.9.11\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -57,7 +59,10 @@
     "Application.QuadtreeTest.executor": "Run",
     "Application.TreeTest.executor": "Run",
     "JUnit.EncryptedTreeTest.build.executor": "Run",
+    "JUnit.EncryptedTreeTest.executor": "Run",
+    "JUnit.EncryptedTreeTest.insert.executor": "Run",
     "JUnit.EncryptedTreeTest.loadData.executor": "Run",
+    "JUnit.EncryptedTreeTest.storageCost.executor": "Run",
     "JUnit.EncryptedTreeTest.test.executor": "Run",
     "JUnit.EncryptedTreeTest.testBuildAndSearch.executor": "Run",
     "Maven.Ark-Searchable-Encryption [clean].executor": "Run",
@@ -68,6 +73,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.ArkSearchableEncryption.executor": "Run",
@@ -76,16 +82,16 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/File/Repo/cur/Ark-Searchable-Encryption/backend/src/main/resources/test_data",
+    "last_opened_file_path": "C:/Users/admin/Desktop/Repo/Ark-Encryption-Platform/backend/src/main/resources/test_data",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "MavenSettings",
     "spring.configuration.checksum": "2e4a111b4f7ef0f8062896d9ca6239eb",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
@@ -93,11 +99,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\Repo\Ark-Encryption-Platform\backend\src\main\resources\test_data" />
       <recent name="E:\File\Repo\cur\Ark-Searchable-Encryption\backend\src\main\resources\test_data" />
       <recent name="E:\File\Repo\cur\Ark-Searchable-Encryption\backend\src\main\resources\static\images" />
       <recent name="E:\File\Repo\cur\Ark-Searchable-Encryption\backend\src\main\resources\templates" />
       <recent name="E:\File\Repo\cur\Ark-Searchable-Encryption\backend\src\main\java\cia\arkrypto\se\utils" />
-      <recent name="E:\File\Repo\cur\Ark-Searchable-Encryption\backend\src\main\java\cia\arkrypto\se\service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\File\Repo\cur\Ark-Searchable-Encryption\backend\src\main\resources\templates\pages" />
@@ -114,19 +120,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.EncryptedTreeTest.build">
-    <configuration name="EncryptedTreeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cia.northboat.se.crypto.tree.EncryptedTreeTest" />
-      <module name="Ark-Searchable-Encryption" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cia.northboat.se.crypto.tree.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cia.arkrypto.se.Main" />
       <module name="Ark-Searchable-Encryption" />
@@ -136,6 +129,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EncryptedTreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ark-Searchable-Encryption" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cia.northboat.se.crypto.tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cia.northboat.se.crypto.tree" />
+      <option name="MAIN_CLASS_NAME" value="cia.northboat.se.crypto.tree.EncryptedTreeTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,7 +164,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EncryptedTreeTest.loadData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EncryptedTreeTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ark-Searchable-Encryption" />
       <extension name="coverage">
         <pattern>
@@ -166,13 +174,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cia.northboat.se.crypto.tree" />
       <option name="MAIN_CLASS_NAME" value="cia.northboat.se.crypto.tree.EncryptedTreeTest" />
-      <option name="METHOD_NAME" value="loadData" />
+      <option name="METHOD_NAME" value="insert" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EncryptedTreeTest.testBuildAndSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EncryptedTreeTest.storageCost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ark-Searchable-Encryption" />
       <extension name="coverage">
         <pattern>
@@ -182,7 +190,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="cia.northboat.se.crypto.tree" />
       <option name="MAIN_CLASS_NAME" value="cia.northboat.se.crypto.tree.EncryptedTreeTest" />
-      <option name="METHOD_NAME" value="testBuildAndSearch" />
+      <option name="METHOD_NAME" value="storageCost" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -204,18 +212,18 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.EncryptedTreeTest.build" />
-        <item itemvalue="JUnit.EncryptedTreeTest.loadData" />
-        <item itemvalue="JUnit.EncryptedTreeTest.testBuildAndSearch" />
+        <item itemvalue="JUnit.EncryptedTreeTest.insert" />
+        <item itemvalue="JUnit.EncryptedTreeTest.storageCost" />
+        <item itemvalue="JUnit.EncryptedTreeTest" />
         <item itemvalue="Spring Boot.ArkSearchableEncryption" />
-        <item itemvalue="Application.EncryptedTreeTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
-        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
       </set>
     </attachedChunks>
   </component>
@@ -299,6 +307,9 @@
       <workItem from="1762407977528" duration="9001000" />
       <workItem from="1762483126654" duration="7701000" />
       <workItem from="1762501678009" duration="8654000" />
+      <workItem from="1762749597332" duration="2174000" />
+      <workItem from="1762753654423" duration="1876000" />
+      <workItem from="1763274432274" duration="5406000" />
     </task>
     <task id="LOCAL-00001" summary="update: add PEKS algo &amp; TestUtil">
       <created>1745999105945</created>
@@ -358,7 +369,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/IPFEUtil.java</url>
           <line>88</line>
-          <properties class="cia.northboat.se.crypto.tree.IPFEUtil" method="match">
+          <properties class="cia.northboat.se.crypto.tree.IPFEUtil">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -367,7 +378,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/IPFEUtil.java</url>
           <line>69</line>
-          <properties class="cia.northboat.se.crypto.tree.IPFEUtil" method="trap">
+          <properties class="cia.northboat.se.crypto.tree.IPFEUtil">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -375,8 +386,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/cia/northboat/se/crypto/tree/EncryptedTree.java</url>
-          <line>171</line>
-          <properties class="cia.northboat.se.crypto.tree.EncryptedTree" method="getTreeStruct">
+          <line>174</line>
+          <properties class="cia.northboat.se.crypto.tree.EncryptedTree">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -389,5 +400,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

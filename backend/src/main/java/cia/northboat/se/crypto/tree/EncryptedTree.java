@@ -22,7 +22,7 @@ public class EncryptedTree {
 
     TreeNode root;
     Field G1, Zr;
-    int height, n; // 这个 n 是字段的个数 → 树的维度
+    int height, n, size; // 这个 n 是字段的个数 → 树的维度
 
     @Autowired
     public EncryptedTree(Field G1, Field Zr){
@@ -40,6 +40,7 @@ public class EncryptedTree {
     public void clean(){
         root = null;
         height = 0;
+        size = 0;
     }
 
 
@@ -52,6 +53,7 @@ public class EncryptedTree {
             Arrays.fill(initPrefix, "0");
             root = IPFEUtil.enc(Zr, initPrefix, curX);
             height++;
+            size++;
 //            return root;
         }
         return insert(root.getPrefix(), curX, root, 1);
@@ -76,6 +78,7 @@ public class EncryptedTree {
         if(child == null){
             root.setSubtree(node, i);
             height = Math.max(height, h);
+            size++;
             return node;
         }
         // 否则继续向下找
